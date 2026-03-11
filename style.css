@@ -1,0 +1,118 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/* 1. 마우스 포인터 숨김 (요술봉으로 대체) */
+* { 
+    margin: 0; padding: 0; box-sizing: border-box; 
+    font-family: 'Pretendard', sans-serif;
+    cursor: none !important; 
+}
+
+body, html {
+    width: 100%; height: 100%;
+    background-color: transparent !important;
+    overflow: hidden;
+}
+
+/* 2. 요술봉 커서 디자인 (Alt.ani 대체) */
+#magic-wand {
+    position: fixed; width: 25px; height: 25px;
+    background: radial-gradient(circle, #fff 0%, #81D4FA 60%, transparent 100%);
+    border-radius: 50%; pointer-events: none; z-index: 20000;
+    box-shadow: 0 0 15px #fff, 0 0 25px #B3E5FC;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+}
+
+/* 3. 배경 영상 (최하단 고정) */
+.bg-video-container {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -10; background-color: #000;
+}
+#bg-video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* 4. 눈보라 레이어 */
+#snow-canvas {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -5; pointer-events: none;
+}
+
+/* 5. 상단바 (밝은 하늘 화이트) */
+.navbar {
+    position: fixed; top: 0; width: 100%; height: 75px;
+    background: rgba(224, 247, 250, 0.45);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 60px; z-index: 1000;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+.logo { height: 50px; }
+.nav-menu { display: flex; gap: 60px; list-style: none; }
+.nav-menu a {
+    text-decoration: none; color: #01579B;
+    font-weight: 900; font-size: 1.4rem;
+    transition: 0.3s;
+}
+
+/* 6. 메인 홈 타이포그래피 */
+.main-wrapper { 
+    width: 100%; height: 100vh; 
+    display: flex; justify-content: center; align-items: center; 
+    position: relative; z-index: 1;
+}
+.glitch-text { 
+    font-size: 8rem; font-weight: 900; color: #fff; 
+    display: flex; gap: 15px;
+    text-shadow: 0 0 30px rgba(129, 212, 250, 1);
+}
+.char { display: inline-block; animation: glitch-loop 3s infinite; }
+@keyframes glitch-loop {
+    0%, 100% { transform: none; opacity: 1; }
+    5% { transform: skew(-15deg); text-shadow: 4px 0 #00B0FF, -4px 0 #fff; }
+    15% { transform: skew(10deg); text-shadow: -4px 0 #00B0FF, 4px 0 #fff; }
+    20% { transform: none; }
+}
+
+/* 7. 투명창 패널 */
+.glass-panel {
+    width: 95%; max-width: 1600px; height: 85vh;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+    border-radius: 40px; padding: 60px;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+    border: 2px solid #fff;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+
+/* 8. 갤러리 디자인 */
+.album-container {
+    position: relative; width: 100%; max-width: 1200px; height: 600px;
+    display: flex; align-items: center; justify-content: center;
+}
+.album-img {
+    max-width: 90%; max-height: 100%;
+    border: 10px solid #fff; border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+    transition: 0.4s;
+}
+.nav-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: #fff; color: #0288D1; border: none;
+    width: 80px; height: 80px; font-size: 3rem; font-weight: 900;
+    border-radius: 50%; z-index: 100;
+}
+.prev-btn { left: 10px; } .next-btn { right: 10px; }
+
+/* 9. 버튼 디자인 */
+.button-group { display: flex; gap: 20px; margin-top: 40px; }
+.cta-button {
+    display: inline-block; background: #03A9F4; color: #fff;
+    padding: 20px 50px; border-radius: 100px; text-decoration: none;
+    font-weight: 900; font-size: 1.6rem; box-shadow: 0 10px 20px rgba(3, 169, 244, 0.3);
+}
+.cta-button.cafe { background: #2DB400; box-shadow: 0 10px 20px rgba(45, 180, 0, 0.3); }
+
+/* 10. 별빛 잔상 입자 */
+.particle { 
+    position: absolute; background: radial-gradient(circle, #fff 0%, #B3E5FC 70%, transparent 100%); 
+    border-radius: 50%; pointer-events: none; z-index: 19999; 
+}

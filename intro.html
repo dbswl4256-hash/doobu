@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="퍼나콘.png">
+    <link rel="stylesheet" href="style.css">
+    <title>두부 길드 - 소개</title>
+</head>
+<body>
+    <div class="bg-video-container">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="두부영상.mp4" type="video/mp4">
+        </video>
+    </div>
+    <canvas id="snow-canvas"></canvas>
+    <nav class="navbar">
+        <div class="nav-left"><img src="두부로고2.png" class="logo" onclick="location.href='index.html'"></div>
+        <ul class="nav-menu">
+            <li><a href="intro.html" class="glitch">길드소개</a></li>
+            <li><a href="gallery.html" class="glitch">갤러리</a></li>
+        </ul>
+    </nav>
+    <div class="main-wrapper">
+        <div class="glass-panel" style="overflow-y: auto; justify-content: flex-start;">
+            <div style="display: flex; gap: 60px; align-items: center; margin-bottom: 50px; width: 100%;">
+                <img src="두부홈.png" style="width: 450px; border-radius: 30px;">
+                <div style="text-align: left;">
+                    <h1 style="color: #01579B; font-size: 5rem !important;">두부 길드원 모집</h1>
+                    <p style="font-size: 2rem !important; color: #0288D1;">#내향인 #가벼운 소통 #꾸준한 플레이</p>
+                    <p style="font-size: 1.5rem !important; margin-top: 10px; color: #01579B;">길마: 토이 / 부길마: 은누</p>
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; width: 100%; text-align: left;">
+                <div style="background: rgba(255,255,255,0.4); padding: 40px; border-radius: 30px;">
+                    <h2 style="color: #01579B; font-size: 2.5rem !important; margin-bottom: 20px;">가입조건</h2>
+                    <p style="font-size: 1.5rem !important;">• 레벨 30 이상 (안뜰 19 우대)</p>
+                    <p style="font-size: 1.5rem !important;">• 꾸준하게 플레이하실 분</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.4); padding: 40px; border-radius: 30px;">
+                    <h2 style="color: #01579B; font-size: 2.5rem !important; margin-bottom: 20px;">활동규칙</h2>
+                    <p style="font-size: 1.5rem !important;">• 의뢰 및 기부 필수</p>
+                    <p style="font-size: 1.5rem !important;">• 무단 미접 시 추방 처리 가능</p>
+                </div>
+            </div>
+            <div class="button-group">
+                <a href="https://open.kakao.com/o/s037z0cf" target="_blank" class="cta-button">가입신청 및 문의</a>
+                <a href="https://cafe.naver.com/cafeplayville/26649" target="_blank" class="cta-button cafe">길드원 모집 공지</a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
