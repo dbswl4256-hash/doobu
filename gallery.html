@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="퍼나콘.png">
+    <link rel="stylesheet" href="style.css">
+    <title>두부 길드 - 갤러리</title>
+</head>
+<body>
+    <div class="bg-video-container">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="두부영상.mp4" type="video/mp4">
+        </video>
+    </div>
+    <canvas id="snow-canvas"></canvas>
+    <nav class="navbar">
+        <div class="nav-left"><img src="두부로고2.png" class="logo" onclick="location.href='index.html'"></div>
+        <ul class="nav-menu">
+            <li><a href="intro.html" class="glitch">길드소개</a></li>
+            <li><a href="gallery.html" class="glitch">갤러리</a></li>
+        </ul>
+    </nav>
+    <div class="main-wrapper">
+        <div class="glass-panel">
+            <h1 style="margin-bottom: 20px; color: #01579B; font-size: 3rem !important;">ALBUM</h1>
+            <div class="album-container">
+                <button class="nav-btn prev-btn" onclick="updateGallery(-1)">‹</button>
+                <img src="두부0.png" id="gallery-img" class="album-img">
+                <button class="nav-btn next-btn" onclick="updateGallery(1)">›</button>
+            </div>
+            <p id="page-info" style="margin-top: 20px; font-weight: 900; color: #0288D1; font-size: 1.8rem;">1 / 5</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>window.onload = () => { document.getElementById('page-info').innerText = "1 / " + images.length; };</script>
+</body>
+</html>
