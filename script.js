@@ -17,7 +17,7 @@ document.addEventListener('mousedown', () => {
     wand.style.transform = 'translate(-50%, -50%) scale(1.4)';
 });
 document.addEventListener('mouseup', () => { wand.style.transform = 'translate(-50%, -50%) scale(1)'; });
-document.addEventListener('click', () => { if (bgm.paused) bgm.play().catch(() => {}); });
+document.addEventListener('click', () => { if (bgm.paused) { bgm.play().catch(() => {}); } });
 
 function createParticle(x, y) {
     const p = document.createElement('div');
@@ -60,7 +60,6 @@ function updateGallery(dir) {
     }, 100);
 }
 
-// 부드러운 스크롤
 document.querySelectorAll('.side-menu a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         if (this.hash !== "") {

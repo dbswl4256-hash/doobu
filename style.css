@@ -37,17 +37,24 @@ body, html {
 }
 .side-menu a:hover { background: #E1F5FE; transform: translateX(5px); }
 
-/* 3. 메인 콘텐츠 영역 (중요: 겹침 방지 구조) */
+/* 3. 메인 콘텐츠 영역 */
 .content-wrapper { margin-left: 260px; width: calc(100% - 260px); }
-.section { min-height: 100vh; padding: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.section { min-height: 100vh; padding: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+
+/* BGM 출처 표기 (우측 하단, 은은하게) */
+.bgm-credit {
+    position: absolute; bottom: 20px; right: 30px;
+    font-size: 0.75rem; color: rgba(1, 87, 155, 0.4); /* 투명도를 주어 튀지 않게 설정 */
+    font-weight: 500; letter-spacing: -0.5px;
+    pointer-events: none;
+}
 
 /* 홈 섹션: 이미지와 타이포 수직 정렬 */
 .home-container {
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 20px; /* 요소 간 간격 확보 */
+    gap: 20px;
 }
 
-/* 우편 스탬프 이미지 */
 .stamp-img {
     width: 700px; background: #fff; padding: 20px;
     filter: url(#stamp-wavy) drop-shadow(0 0 40px rgba(129, 212, 250, 0.4));
@@ -55,7 +62,6 @@ body, html {
 }
 @keyframes simple-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
-/* 타이포그래피 */
 .main-title {
     font-size: 5rem; font-weight: 900; color: #01579B;
     text-align: center; margin-top: 20px;
