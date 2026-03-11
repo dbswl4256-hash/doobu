@@ -1,36 +1,31 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
-/* 1. 글로벌 최적화 및 하드웨어 가속 */
+/* 1. 글로벌 초기화 */
 * { 
     margin: 0; padding: 0; box-sizing: border-box; 
     font-family: 'Pretendard', sans-serif; 
     cursor: none !important;
-    -webkit-font-smoothing: antialiased;
 }
 body, html { 
     width: 100%; height: 100%; 
-    background: linear-gradient(135deg, #e0f2f1 0%, #e1f5fe 100%); /* 영상 대신 청량한 그라데이션 */
+    background: linear-gradient(135deg, #e0f2f1 0%, #e1f5fe 100%);
     overflow-x: hidden; 
 }
 
-/* 요술봉 커서 (딜레이 0ms) */
+/* 요술봉 커서 */
 #magic-wand {
     position: fixed; width: 20px; height: 20px;
     background: radial-gradient(circle, #fff 0%, #03A9F4 70%, transparent 100%);
     border-radius: 50%; pointer-events: none; z-index: 100000;
     box-shadow: 0 0 15px #fff; transform: translate(-50%, -50%);
-    will-change: left, top;
 }
 
-/* 2. 눈보라 레이어 */
+/* 2. 눈보라 및 사이드바 */
 #snow-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -5; pointer-events: none; }
-
-/* 3. 사이드바 */
 .sidebar {
     position: fixed; top: 0; left: 0; width: 260px; height: 100vh;
     background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    border-right: 1px solid rgba(3, 169, 244, 0.1);
+    backdrop-filter: blur(10px); border-right: 1px solid rgba(3, 169, 244, 0.1);
     display: flex; flex-direction: column; align-items: center;
     padding: 50px 20px; z-index: 1000;
 }
@@ -42,12 +37,17 @@ body, html {
 }
 .side-menu a:hover { background: #E1F5FE; transform: translateX(5px); }
 
-/* 4. 메인 콘텐츠 영역 */
-.content-wrapper { margin-left: 260px; width: calc(100% - 280px); }
-.section { min-height: 100vh; padding: 80px; display: flex; flex-direction: column; justify-content: center; }
+/* 3. 메인 콘텐츠 영역 (중요: 겹침 방지 구조) */
+.content-wrapper { margin-left: 260px; width: calc(100% - 260px); }
+.section { min-height: 100vh; padding: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 
-/* 홈 섹션: 스탬프 비주얼 */
-.home-visual { position: relative; width: 100%; height: 50vh; display: flex; justify-content: center; align-items: center; }
+/* 홈 섹션: 이미지와 타이포 수직 정렬 */
+.home-container {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 20px; /* 요소 간 간격 확보 */
+}
+
+/* 우편 스탬프 이미지 */
 .stamp-img {
     width: 700px; background: #fff; padding: 20px;
     filter: url(#stamp-wavy) drop-shadow(0 0 40px rgba(129, 212, 250, 0.4));
@@ -55,25 +55,24 @@ body, html {
 }
 @keyframes simple-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
+/* 타이포그래피 */
 .main-title {
-    font-size: 5.5rem; font-weight: 900; color: #01579B;
-    margin-top: 30px; text-align: center;
+    font-size: 5rem; font-weight: 900; color: #01579B;
+    text-align: center; margin-top: 20px;
     text-shadow: 2px 2px 0px #fff, 0 10px 20px rgba(3, 169, 244, 0.2);
+    z-index: 5;
 }
+.char { display: inline-block; animation: glitch-loop 3s infinite; }
 
-/* 5. 정보 카드 */
-.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
+/* 4. 정보 카드 및 갤러리 */
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; width: 100%; }
 .info-card {
-    background: rgba(255, 255, 255, 0.85);
-    padding: 35px; border-radius: 25px;
+    background: rgba(255, 255, 255, 0.85); padding: 35px; border-radius: 25px;
     border: 1px solid #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.03);
 }
-.info-card h2 { color: #01579B; margin-bottom: 15px; border-left: 6px solid #03A9F4; padding-left: 12px; }
-
-/* 6. 갤러리 */
 .gallery-container { position: relative; width: 100%; height: 500px; display: flex; align-items: center; justify-content: center; }
-.gallery-img { max-width: 80%; max-height: 100%; border-radius: 15px; border: 8px solid #fff; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: #fff; border: none; width: 55px; height: 55px; border-radius: 50%; font-size: 1.5rem; color: #03A9F4; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.gallery-img { max-width: 80%; max-height: 100%; border-radius: 15px; border: 8px solid #fff; }
+.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: #fff; border: none; width: 55px; height: 55px; border-radius: 50%; z-index: 100; }
 .prev-btn { left: 10px; } .next-btn { right: 10px; }
 
 /* 별빛 잔상 입자 */
@@ -82,3 +81,5 @@ body, html {
 .cta-btn { padding: 15px 35px; border-radius: 40px; text-decoration: none; font-weight: 900; transition: 0.2s; }
 .blue { background: #03A9F4; color: #fff; }
 .green { background: #2DB400; color: #fff; }
+
+@keyframes glitch-loop { 0%, 100% { transform: none; opacity: 1; } 5% { transform: skew(-5deg); text-shadow: 3px 0 #00B0FF, -3px 0 #fff; } 20% { transform: none; } }
