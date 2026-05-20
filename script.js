@@ -48,7 +48,7 @@ function draw() {
 draw();
 
 let galleryIndex = 0;
-const images = ["두부0.png", "두부1.png", "두부2.png", "두부3.png", "두부4.png", "두부5.png", "두부6.png", "두부7.png", "두부8.png","두부9.png","두부10.png"];
+const images = ["두부0.png", "두부1.png", "두부2.png", "두부3.png", "두부4.png", "두부5.png", "두부6.png", "두부7.png", "두부8.png","두부9.png","두부10.png","두부11.png","두부12.png","두부13.png","두부14.png","두부15.png"];
 function updateGallery(dir) {
     const img = document.getElementById('gallery-img');
     flipSound.currentTime = 0; flipSound.play();
